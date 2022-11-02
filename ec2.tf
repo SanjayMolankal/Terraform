@@ -14,12 +14,6 @@ resource "aws_instance" "ec2" {
 
  tags = {
    Name = "terraform-example"
-   
- ingress {
-   from_port    = 80
-   to_port      = 80
-   protocol     = "tcp"
-   cidr_blocks  = ["0.0.0.0/0"]
   }
 }
 
