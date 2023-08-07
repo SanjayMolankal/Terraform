@@ -14,6 +14,17 @@ resource "aws_instance" "my_server" {
   provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
 }
+  provisioner "remote-exec" {
+    inline = [
+      "mkdir -p /root/sanjay"
+  ]
+ connection {
+   type   = "ssh"
+   user   = "root"
+   host   = "${self.public_ip}"
+   private_key = "${file("/root/.ssh/id_rsa")}"
+ }
+}
   tags = { #name of the server or instance
     Name = "New-VM-${local.project_name}"
   }
