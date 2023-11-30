@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "ec2" {
- ami = "ami-002070d43b0a4f171"
+ ami = "ami-0cdb8266fcd5d3d63"
  instance_type = "t2.micro"
 
  user_data = <<-EOF
@@ -17,7 +17,7 @@ resource "aws_instance" "ec2" {
   }
 }
 
-resource "local_file" "test" {
+/* resource "local_file" "test" {
  filename = "test.txt"
  content = <<-EOT
    Specifies the name to attach to the role session. This value is provided to t                                                                                                             he RoleSessionName
@@ -29,4 +29,4 @@ resource "local_file" "test" {
    is provided by an identity provider. The AWS CLI loads the contents of this f                                                                                                             ile and passes it as the
    WebIdentityToken argument to the AssumeRoleWithWebIdentity operation.
  EOT
-}
+*/ }
