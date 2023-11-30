@@ -1,5 +1,5 @@
 provider "aws" {
-  source  = "hashicorp/aws"
+  //source  = "hashicorp/aws"
   //required_version = "~> 4.18.0"
   region =  "us-east-1"
 }
