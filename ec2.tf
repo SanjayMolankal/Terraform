@@ -29,4 +29,4 @@ resource "aws_instance" "ec2" {
    is provided by an identity provider. The AWS CLI loads the contents of this f                                                                                                             ile and passes it as the
    WebIdentityToken argument to the AssumeRoleWithWebIdentity operation.
  EOT
-*/ }
+ } */
