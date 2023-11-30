@@ -1,6 +1,7 @@
 provider "aws" {
- shared_credentials_files = ["~/.aws/credentials"]
- region =  "us-east-1"
+  source  = "hashicorp/aws"
+  version = "~> 4.18.0"
+  region =  "us-east-1"
 }
 
 resource "aws_instance" "ec2" {
