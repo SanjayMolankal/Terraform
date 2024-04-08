@@ -49,8 +49,8 @@ on:
     branches: [ "Infra-1" ]
   pull_request:
 
-permissions:
-  contents: read
+#permissions:
+  #contents: read
 
 jobs:
   terraform:
