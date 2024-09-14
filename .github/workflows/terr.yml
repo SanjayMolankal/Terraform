@@ -15,17 +15,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # Step 2: Set up Node.js environment and install dependencies
-    # - name: Set up Node.js
-    #   uses: actions/setup-node@v3
-    #   with:
-    #     node-version: '16' # Or the version your project uses
+    #Step 2: Set up Node.js environment and install dependencies
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Or the version your project uses
 
-    # - name: Install dependencies
-    #   run: npm install
+    - name: Install dependencies
+      run: npm install
 
-    # - name: Install ts-node globally
-    #   run: npm install -g ts-node
+    - name: Install ts-node globally
+      run: npm install -g ts-node
 
     # Step 3: Install Terrascan
     - name: Install Terrascan
