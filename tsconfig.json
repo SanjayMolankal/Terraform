@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",          // Or a newer version like "ES2021"
+    "module": "CommonJS",        // Use "CommonJS" for Node.js
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
