@@ -35,7 +35,7 @@ jobs:
 
     # Step 4: Run the TypeScript script
     - name: Run Terrascan TypeScript Script
-      run: npx ts-node ./terrascan.ts #If you have a build step for TypeScript
+      run: node ./terrascan.ts #If you have a build step for TypeScript
       
     # Optional: Step 5: Upload Terrascan report as an artifact (if needed)
     - name: Upload Terrascan report
