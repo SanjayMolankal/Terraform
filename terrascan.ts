@@ -27,7 +27,7 @@ const runTerrascan = (directory: string): Promise<string> => {
 
 // Main function to execute the scan and save the output
 const main = async () => {
-  const directoryToScan = './path/to/terraform/files';
+  const directoryToScan = './terraform';
   // const terrascanConfigFile = './path/to/terrascan/config.yml'; // Update with your config file path
 
   try {
