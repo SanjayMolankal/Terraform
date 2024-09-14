@@ -1,0 +1,47 @@
+name: Terrascan CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  terrascan:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Node.js environment and install dependencies
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Or the version your project uses
+
+    - name: Install dependencies
+      run: npm install
+
+    # Step 3: Install Terrascan
+    - name: Install Terrascan
+      run: |
+        curl -L https://github.com/tenable/terrascan/releases/download/v1.17.0/terrascan_1.17.0_linux_amd64.tar.gz -o terrascan.tar.gz
+        tar -xvzf terrascan.tar.gz
+        sudo mv terrascan /usr/local/bin/terrascan
+        terrascan version
+
+    # Step 4: Run the TypeScript script
+    - name: Run Terrascan TypeScript Script
+      run: |
+        npm run build # If you have a build step for TypeScript
+        node dist/your-terrascan-script.js # Adjust the path to your compiled TypeScript file or run directly with ts-node if configured
+
+    # Optional: Step 5: Upload Terrascan report as an artifact (if needed)
+    - name: Upload Terrascan report
+      if: success() # Only run if the previous steps succeed
+      uses: actions/upload-artifact@v3
+      with:
+        name: terrascan-report
+        path: terrascan-report.json # Replace with the actual output file if you save the report
