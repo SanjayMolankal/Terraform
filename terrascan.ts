@@ -16,7 +16,7 @@ const runTerrascan = (directory: string): Promise<string> => {
 };
 
 // Example usage
-const directoryToScan = './Terraform/';
+const directoryToScan = './Terraform';
 
 runTerrascan(directoryToScan)
   .then((output) => {
