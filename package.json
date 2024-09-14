@@ -1,6 +1,7 @@
 {
   "name": "terrascan-project",
   "version": "1.0.0",
+  "type" : "module",
   "scripts": {
     "build": "tsc",
     "start": "node ./terrascan.js"
