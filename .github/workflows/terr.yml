@@ -24,6 +24,9 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Install ts-node globally
+      run: npm install -g ts-node
+
     # Step 3: Install Terrascan
     - name: Install Terrascan
       run: |
@@ -34,10 +37,8 @@ jobs:
 
     # Step 4: Run the TypeScript script
     - name: Run Terrascan TypeScript Script
-      run: |
-        npm run build # If you have a build step for TypeScript
-        node dist/your-terrascan-script.js # Adjust the path to your compiled TypeScript file or run directly with ts-node if configured
-
+      run: ts-node  /terrascan.ts# If you have a build step for TypeScript
+      
     # Optional: Step 5: Upload Terrascan report as an artifact (if needed)
     - name: Upload Terrascan report
       if: success() # Only run if the previous steps succeed
