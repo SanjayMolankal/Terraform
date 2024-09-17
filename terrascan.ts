@@ -1,10 +1,4 @@
-import * as exec from '@actions/exec';
-import * as core from '@actions/core';
-import * as tc from '@actions/tool-cache';
-import { execSync } from 'node:child_process';
-import fs from 'node:fs';
-import path from 'node:path';
-import { makeTmpDir, stringifyError } from './utils';
+
 
 export interface TerrascanOptions {
     version?: string;
