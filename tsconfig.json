@@ -4,6 +4,8 @@
     "module": "CommonJS",        // Use "CommonJS" for Node.js
     "outDir": "./dist",
     "rootDir": "./src",
+    "type": "module",
+    "main": "terrascan.cjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
