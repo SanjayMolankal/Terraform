@@ -1,17 +1,27 @@
-import * as terrascan from '@pulumi/terrascan';
+import { exec } from 'child_process';
+
+async function runTerrascan() {
+  return new Promise((resolve, reject) => {
+    exec('terrascan scan -t aws -f .', (error, stdout, stderr) => {
+      if (error) {
+        reject(`Terrascan scan failed: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        reject(`Error output: ${stderr}`);
+        return;
+      }
+      resolve(stdout);
+    });
+  });
+}
 
 async function main() {
   try {
-    const results = await terrascan.scan({
-       directory: './',
-       include: ['*.tf', '*.tfvars'],
-      // exclude: ['**/.terraform', '**/terraform.lock.hcl'],
-    });
-
-    // Process the scan results
-    console.log(results);
+    const results = await runTerrascan();
+    console.log('Terrascan scan results:\n', results);
   } catch (error) {
-    console.error('Terrascan scan failed:', error);
+    console.error(error);
   }
 }
 
