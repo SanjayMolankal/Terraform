@@ -4,7 +4,6 @@
     "module": "CommonJS",        // Use "CommonJS" for Node.js environment
     "outDir": "./",
     "rootDir": "./",
-    "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
