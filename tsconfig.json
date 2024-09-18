@@ -3,7 +3,8 @@
     "target": "ES2021",          // Or a newer version if necessary
     "module": "CommonJS",        // Use "CommonJS" for Node.js environment
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./",
+    "type" : "module",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
