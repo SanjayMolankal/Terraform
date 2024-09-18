@@ -33,5 +33,8 @@ jobs:
        terrascan version   
     - name: Run Terrascan TypeScript Script
       #run: npx ts-node ./terrascan.ts
-      run: npx ts-node --loader ts-node/esm ./terrascan.ts
+      run: npx tsc
+    - name: compile
+      run: node ./terrascan.json
+
 
