@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es06",          // Or a newer version like "ES2021"
+    "target": "ES2021",          // Or a newer version like "ES2021"
     "module": "CommonJS",        // Use "CommonJS" for Node.js
     "outDir": "./dist",
     "rootDir": "./src",
