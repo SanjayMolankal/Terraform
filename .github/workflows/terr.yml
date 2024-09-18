@@ -36,6 +36,6 @@ jobs:
       run: npx tsc
     - name: compile
       #run: node ./terrascan.js
-      run: npx ts-node ./terrascan
+      run: npx ts-node ./terrascan.cjs
 
 
