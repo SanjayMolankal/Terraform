@@ -37,8 +37,8 @@ jobs:
       #run: tsc terrascan.ts
       run: npm install -g ts-node
     - name: compile
-      #run: node ./terrascan.js
+      run: node ./terrascan.js
       #run: npx ts-node ./terrascan.ts
-      run: npx ts-node ./terrascan.ts
+     # run: npx ts-node ./terrascan.ts
 
 
