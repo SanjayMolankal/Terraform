@@ -16,5 +16,9 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
      - name: install deps
        run: npm install
+
+     - name: install ts-node
+       run: npm install ts-node typescript
+
      - name: Run Terrascan
        run: npx ts-node terrascan.ts
