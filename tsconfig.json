@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES2021",          // Or a newer version like "ES2021"
-    "module": "CommonJS",        // Use "CommonJS" for Node.js
+    "target": "ES2021",          // Or a newer version if necessary
+    "module": "CommonJS",        // Use "CommonJS" for Node.js environment
     "outDir": "./dist",
     "rootDir": "./src",
-    "types": "module",
-    "main": "terrascan.cjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-    "types": ["node"]
+    "types": ["node"]            // Specify types for Node.js
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
