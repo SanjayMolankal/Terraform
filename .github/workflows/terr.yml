@@ -35,6 +35,6 @@ jobs:
       #run: npx ts-node ./terrascan.ts
       run: npx tsc
     - name: compile
-      run: node ./terrascan.json
+      run: node ./terrascan.js
 
 
