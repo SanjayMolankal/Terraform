@@ -11,6 +11,6 @@
     "strict": true,
     "types": ["node"]            // Specify types for Node.js
   },
-  "include": ["src/**/*.ts"],
+  "include": ["*.ts"],
   "exclude": ["node_modules"]
 }
