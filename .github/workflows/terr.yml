@@ -1,24 +1,24 @@
-name: Terrascan Scan
+name: Run Terrascan
 
 on:
   push:
     branches: master
 
 jobs:
-  terrascan:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-     - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-     - uses: actions/setup-node@v4
-       with:
-          node-version: 20.x
-          registry-url: 'https://npm.pkg.github.com'
-     - name: install deps
-       run: npm install
+      - name: Install Terrascan
+        run: npm install -g terrascan
 
-     - name: install ts-node
-       run: npm install ts-node typescript
+      - name: Run Terrascan
+        run: terrascan scan -t aws -f .
 
-     - name: Run Terrascan
-       run: npx ts-node terrascan.ts
+      - name: Upload Terrascan results as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: terrascan-results
+          path: terrascan-report.json
