@@ -4,12 +4,11 @@
     "module": "CommonJS",        // Use "CommonJS" for Node.js environment
     "outDir": "./dist",
     "rootDir": "./",
-    "types" : "module",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-    "types": ["node"]            // Specify types for Node.js
+    "types": ["node","module"]            // Specify types for Node.js
   },
   "include": ["*.ts"],
   "exclude": ["node_modules"]
