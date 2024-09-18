@@ -1,6 +1,6 @@
 import { exec } from 'child_process';
 
-async function runTerrascan() {
+export default async function runTerrascan() {
   return new Promise((resolve, reject) => {
     exec('terrascan scan -t aws -f .', (error, stdout, stderr) => {
       if (error) {
@@ -11,18 +11,8 @@ async function runTerrascan() {
         reject(`Error output: ${stderr}`);
         return;
       }
-      resolve(stdout);
+      const results = JSON.parse(stdout);
+      resolve(results);
     });
   });
 }
-
-async function main() {
-  try {
-    const results = await runTerrascan();
-    console.log('Terrascan scan results:\n', results);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-main();
