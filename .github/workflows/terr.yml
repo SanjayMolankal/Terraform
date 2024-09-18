@@ -32,4 +32,6 @@ jobs:
        sudo mv terrascan /usr/local/bin/terrascan
        terrascan version   
     - name: Run Terrascan TypeScript Script
-      run: npx ts-node ./terrascan.ts
+      #run: npx ts-node ./terrascan.ts
+      run: npx ts-node --loader ts-node/esm ./terrascan.ts
+
