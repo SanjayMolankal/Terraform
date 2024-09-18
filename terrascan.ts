@@ -1,44 +1,23 @@
 import { exec } from 'child_process';
-import fs from 'fs';
+import { promisify } from 'util';
 
-async function runTerrascan(options: { target: string; format: string; outputFile?: string }) {
-  const { target, format, outputFile } = options;
+const execAsync = promisify(exec);
 
-  return new Promise((resolve, reject) => {
-    const command = `terrascan scan -t ${target} -f ${format}`;
+describe('Terrascan Tests', () => {
+  it('should detect violations in Terraform code', async () => {
+    const { stdout, stderr } = await execAsync('terrascan scan -f json ./path/to/terraform/code');
 
-    exec(command, (error, stdout, stderr) => {
-      if (error) {
-        reject(`Terrascan scan failed: ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        reject(`Error output: ${stderr}`);
-        return;
-      }
+    if (stderr) {
+      throw new Error(stderr);
+    }
 
-      const results = JSON.parse(stdout);
+    const results = JSON.parse(stdout);
 
-      if (outputFile) {
-        fs.writeFileSync(outputFile, JSON.stringify(results, null, 2));
-      }
+    // Check for violations
+    expect(results.violations).toHaveLength(1);
 
-      resolve(results);
-    });
+    // Check for specific violation details
+    expect(results.violations[0].rule_id).toBe('AWS.S3.DS.High.0001');
+    expect(results.violations[0].severity).toBe('HIGH');
   });
-}
-
-async function main() {
-  const target = 'aws'; // Replace with your desired target (e.g., 'gcp', 'azure')
-  const format = 'json'; // Replace with your desired output format (e.g., 'csv', 'yaml')
-  const outputFile = 'terrascan-results.json'; // Optional: Specify an output file
-
-  try {
-    const results = await runTerrascan({ target, format, outputFile });
-    console.log('Terrascan scan results:\n', results);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-main();
+});
