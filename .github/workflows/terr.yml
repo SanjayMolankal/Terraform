@@ -27,7 +27,7 @@ jobs:
       # Run Terrascan scan
       - name: Run Terrascan
         run: | 
-          terrascan scan -d ./ --output-format json 
+          terrascan scan -d ./terraform 
   # Adjust the directory based on where your IaC files are located
 
       # Upload Terrascan scan results as an artifact
