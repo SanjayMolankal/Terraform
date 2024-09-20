@@ -20,10 +20,9 @@ jobs:
       # Install Terrascan
       - name: Install Terrascan
         run: |
-          curl -L https://github.com/accurics/terrascan/releases/latest/download/terrascan_linux_amd64.tar.gz -o terrascan.tar.gz
-          tar -xvf terrascan.tar.gz terrascan
-          sudo mv terrascan /usr/local/bin/
-
+         curl -L https://github.com/accurics/terrascan/releases/download/v1.15.0/terrascan_linux_amd64.tar.gz -o terrascan.tar.gz
+         tar -xvf terrascan.tar.gz terrascan
+         sudo mv terrascan /usr/local/bin/
       # Run Terrascan scan
       - name: Run Terrascan
         run: |
