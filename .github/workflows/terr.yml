@@ -27,7 +27,8 @@ jobs:
       # Run Terrascan scan
       - name: Run Terrascan
         run: |
-          terrascan scan --iac backend.tf  # Adjust the directory based on where your IaC files are located
+          terrascan scan --iac ./ --verbose
+  # Adjust the directory based on where your IaC files are located
 
       # Upload Terrascan scan results as an artifact
       - name: Upload Terrascan results
