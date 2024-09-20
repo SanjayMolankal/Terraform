@@ -28,7 +28,7 @@ jobs:
       - name: Run Terrascan
         run: | 
           terrascan scan -d ./terraform/backend.tf
-  # Adjust the directory based on where your IaC files are located
+  # Adjust the directory based on where your IaC files are locat
 
       # Upload Terrascan scan results as an artifact
       - name: Upload Terrascan results
