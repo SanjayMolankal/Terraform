@@ -31,8 +31,8 @@ jobs:
   # Adjust the directory based on where your IaC files are locat
 
       # Upload Terrascan scan results as an artifact
-      - name: Upload Terrascan results
-        uses: actions/upload-artifact@v3
-        with:
-          name: terrascan-report
-          path: terrascan-output.json
+      # - name: Upload Terrascan results
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: terrascan-report
+      #     path: terrascan-output.json
