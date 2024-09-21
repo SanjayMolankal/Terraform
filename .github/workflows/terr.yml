@@ -30,6 +30,16 @@ jobs:
           terrascan scan -d ./ --iac-type terraform json > terrascan_output.json
   # Adjust the directory based on where your IaC files are locat
 
+      - name: Saving terrascan output file on repo
+        run: |
+          git config --local user.email "mssanjay0202@gmail.com"
+          git config --local user.name "SanjayMolankal"
+          git add terrascan_output.json
+          git commit -m "Add Terrascan scan result"
+          git push
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # Upload Terrascan scan results as an artifact
       # - name: Upload Terrascan results
       #   uses: actions/upload-artifact@v3
