@@ -3,4 +3,5 @@ terraform {
     bucket         = "my-terraform-state-bucket"
     key            = "path/to/my/key"
     region         = "us-east-1"
+ }
 }
