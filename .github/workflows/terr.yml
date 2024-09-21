@@ -7,7 +7,8 @@ on:
   pull_request:
     branches:
       - master
-
+permissions:
+  contents: write
 jobs:
   terrascan:
     runs-on: ubuntu-latest
@@ -38,7 +39,7 @@ jobs:
           git commit -m "Add Terrascan scan result"
           git push
         env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         TOKEN: ${{ secrets.TOKEN }}
 
       # Upload Terrascan scan results as an artifact
       # - name: Upload Terrascan results
