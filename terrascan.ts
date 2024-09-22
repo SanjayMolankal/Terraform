@@ -36,9 +36,11 @@ const runTerrascanScan = (terraformDir: string, outputFile: string) => {
 
 // Main function to execute the steps
 const main = () => {
+    const tsFile = 'terrascan.ts';
     const terraformDir = path.resolve('./terraform');  // Replace with your Terraform directory
     const outputFile = 'terrascan-output.json';
 
+    compileTypeScrypt(tsFile);	
     installTerrascan();
     runTerrascanScan(terraformDir, outputFile);
 };
