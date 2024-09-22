@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 //Installing terrascan
-const installTerraform = () => {
+const installTerrascan = () => {
   try {
     console.log("Installing Terrascan...");
 	execSync('curl -L https://github.com/tenable/terrascan/releases/download/v1.17.0/terrascan_1.17.0_Linux_x86_64.tar.gz -o terrascan.tar.gz');
