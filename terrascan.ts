@@ -6,8 +6,8 @@ import * as path from 'path';
 //Function to compile Typescript file
 const compileTypeScript = (tsFile: string) => {
   try {
-    console.log(`Compiling TypeScript file: ${tsFile}`);
-    execSync(`npx tsc ${tsFile}`);
+    console.log(`Compiling TypeScript file: terrascan.ts`);
+    execSync(`npx tsc terrascan.ts`);
     console.log("Compilation successful.");
   } catch (error) {
     console.error("Error during TypeScript compilation: ", error);
