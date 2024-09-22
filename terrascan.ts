@@ -21,6 +21,10 @@ const runTerrascanScan = (terraformDir: string, outputFile: string) => {
    try {
       console.log(`Running Terrascan scan on directory: ${terraformDir}`);
       const terrascanOutput = execSync(`terrascan scan -i terraform -d ${terraformDir} -o json`);
+
+      // Display terrascan output
+      console.log("Terrascan scan results:");
+      console.log(terrascanOutput.toString());
       
       // save the output to a file
        fs.writeFileSync(outputFile, terrascanOutput.toString());
