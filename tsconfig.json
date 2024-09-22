@@ -9,6 +9,6 @@
     "strict": true,
     "types": ["node"]            // Specify types for Node.js
   },
-  "include": ["*.ts"],
+  "include": ["terrascan.ts"],
   "exclude": ["node_modules"]
 }
