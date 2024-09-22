@@ -1,0 +1,40 @@
+name: Terrascan Action
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+permissions:
+  contents: write
+jobs:
+  terrascan:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+            # Step 2: Set up Node.js (to use npm and install dependencies)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Step 3: Install TypeScript and other dependencies
+      - name: Install dependencies
+        run: |
+          npm install typescript @types/node fs child_process
+
+      # Step 4: Compile the TypeScript file
+      - name: Compile TypeScript file
+        run: |
+          npx tsc terrascan.ts
+
+      # Step 5: Run the compiled JavaScript file
+      - name: Run Terrascan scan
+        run: |
+          node terrascan-scan.js
