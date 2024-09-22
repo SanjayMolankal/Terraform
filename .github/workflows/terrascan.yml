@@ -37,4 +37,4 @@ jobs:
       # Step 5: Run the compiled JavaScript file
       - name: Run Terrascan scan
         run: |
-          node terrascan-scan.js
+          node terrascan.js
