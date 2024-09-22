@@ -2,6 +2,19 @@ import { execSync } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 
+
+//Function to compile Typescript file
+const compileTypeScript = (tsFile: string) => {
+  try {
+    console.log(`Compiling TypeScript file: ${tsFile}`);
+    execSync(`npx tsc ${tsFile}`);
+    console.log("Compilation successful.");
+  } catch (error) {
+    console.error("Error during TypeScript compilation: ", error);
+    process.exit(1); // Exit if compilation fails
+  }
+};
+
 //Installing terrascan
 const installTerrascan = () => {
   try {
