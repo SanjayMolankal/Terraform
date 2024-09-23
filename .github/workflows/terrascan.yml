@@ -29,10 +29,10 @@ jobs:
         run: |
           npm install typescript @types/node fs child_process
 
-      # Step 4: Compile the TypeScript file
-      # - name: Compile TypeScript file
-      #   run: |
-      #     npx tsc terrascan.ts
+     # Step 4: Compile the TypeScript file
+      - name: Compile TypeScript file
+        run: |
+          npx tsc terrascan.ts
 
       # Step 5: Run the compiled JavaScript file
       - name: Run Terrascan scan
