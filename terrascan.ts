@@ -3,18 +3,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 
-//Function to compile Typescript file
-const compileTypeScript = (tsFile: string) => {
-  try {
-    //const tsFile = path.resolve('./terrascan.ts')
-    console.log(`Compiling TypeScript file: ${tsFile}`);
-    execSync(`npx tsc ${tsFile}`);
-    console.log("Compilation successful.");
-  } catch (error) {
-    console.error("Error during TypeScript compilation: ", error);
-    process.exit(1); // Exit if compilation fails
-  }
-};
 
 //Installing terrascan
 const installTerrascan = () => {
@@ -50,11 +38,11 @@ const runTerrascanScan = (terraformDir: string, outputFile: string) => {
 
 // Main function to execute the steps
 const main = () => {
-    const tsFile = path.resolve('./terrascan.ts');
+   // const tsFile = path.resolve('./terrascan.ts');
     const terraformDir = path.resolve('./terraform');  // Replace with your Terraform directory
     const outputFile = 'terrascan-output.json';
 
-    compileTypeScrypt(tsFile);	
+   // compileTypeScrypt(tsFile);	
     installTerrascan();
     runTerrascanScan(terraformDir, outputFile);
 };
