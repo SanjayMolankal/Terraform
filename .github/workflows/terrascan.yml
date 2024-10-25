@@ -46,3 +46,8 @@ jobs:
 
         run: |
           sed -i "s/old-branch-name/$(echo ${{ github.ref }} | sed 's/refs\/heads\///')/" .github/workflows/terrascan.yml
+
+      - name: shell execution
+        run: |
+          chmod +x test1.sh
+          ./test1.sh
