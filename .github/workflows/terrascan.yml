@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - ${{ github.ref }}
-      - master
+        #- master
   pull_request:
     branches:
       - master
