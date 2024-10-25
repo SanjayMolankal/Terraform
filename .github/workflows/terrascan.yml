@@ -3,6 +3,7 @@ name: Terrascan Action
 on:
   push:
     branches:
+      - ${{ github.ref }}
       - master
   pull_request:
     branches:
