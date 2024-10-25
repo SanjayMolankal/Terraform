@@ -3,7 +3,7 @@ name: Terrascan Action
 on:
   push:
     branches:
-      - ${{ github.ref }}
+      - '*'
         #- master
   pull_request:
     branches:
@@ -29,13 +29,20 @@ jobs:
       - name: Install dependencies
         run: |
           npm install typescript @types/node fs child_process
-
      # Step 4: Compile the TypeScript file
       - name: Compile TypeScript file
         run: |
           npx tsc terrascan.ts
-
       # Step 5: Run the compiled JavaScript file
       - name: Run Terrascan scan
         run: |
           node terrascan.js
+      # Step 6: Disply the branch name
+      - name: Get branch name
+        run: |
+          BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+          echo "Branch name: $BRANCH_NAME"
+      - name: Update YAML file
+
+        run: |
+          sed -i "s/old-branch-name/$(echo ${{ github.ref }} | sed 's/refs\/heads\///')/" .github/workflows/terrascan.yml
