@@ -3,7 +3,7 @@ name: Terrascan Action
 on:
   push:
     branches:
-      - [ '*' ] 
+      - '*'
         #- master
   pull_request:
     branches:
