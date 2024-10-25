@@ -42,7 +42,7 @@ jobs:
 
       # Step 6: Disply the branch name
       - name: Get branch name
-        run: echo "Branch name: ${{ github.ref }}" 
+        run: echo "Branch name: ${{ github.ref_name }}" 
 
       - name: Update YAML file
 
