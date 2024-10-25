@@ -3,7 +3,7 @@ name: Terrascan Action
 on:
   push:
     branches:
-      - ${{ github.ref }}
+      - [ '*' ] 
         #- master
   pull_request:
     branches:
@@ -39,3 +39,12 @@ jobs:
       - name: Run Terrascan scan
         run: |
           node terrascan.js
+
+      # Step 6: Disply the branch name
+      - name: Get branch name
+        run: echo "Branch name: ${{ github.ref }}" 
+
+      - name: Update YAML file
+
+        run: |
+          sed -i "s/old-branch-name/$(echo ${{ github.ref }} | sed 's/refs\/heads\///')/" .github/workflows/terrascan.yml
